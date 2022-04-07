@@ -1,0 +1,300 @@
+:root{
+    --mail-color: #FF6A00;/* this way is how to use css variable */
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*{
+   margin: 0;
+   padding: 0;
+}
+body,html{
+   background-color: white;
+   font-family: 'Roboto', sans-serif;
+}
+.wrapper-feedback{
+   margin: 25px 260px;
+}
+.wrapper-feedback .link{
+   /* color: #FF6A00; */
+   color: var(--mail-color);
+   font-size: 20px;
+   font-weight: bolder;
+   text-decoration: none;
+   cursor: pointer;
+}
+.link i{
+   font-size: 35px;
+   padding-right: 4px;
+}
+.user-experience{
+   text-align: center;
+   font-size: 18px;
+   color: #FF6A00;
+   margin: 30px 0;    
+   text-transform: capitalize;
+}
+.feedback-content{
+   background-color:#F2F3F7;
+   border-radius: 3px;
+   padding: 40px;
+}
+.feedback-content .content{
+   margin: 25px 0;
+}
+.feedback-content .content-top{
+   display: flex;
+   align-items: center;
+}
+/* ---------------------------------------- */
+.content .content-top .number{
+   margin-right: 15px;
+}
+.content-top .number .p{
+   font-size: 14px;
+   background-color: white;
+   border-radius: 100px;
+   height: 30px;
+   width: 30px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+.content-top p{
+   font-size: 13px;
+}
+.content-bottom{
+   margin: 0 45px;
+}
+.content-bottom .feelings{
+   width: 250px;
+   display: flex;
+   justify-content: space-between;
+}
+.content-bottom .feelings input{
+   display: none;
+}
+.content-bottom .feelings label img{
+   width: 30px;
+   border: 1px solid #d2d2d2;
+   border-radius: 50px;
+   padding: 4px;
+   margin: 10px 0;
+   cursor: pointer;
+}
+.content-bottom .feelings label img:hover ,
+.content-bottom .feelings label img.active{
+   background-color:  #FF6A00;
+}
+.content-bottom .meaning{
+   font-size: 13px;
+   width: 250px;
+   display: flex;
+   justify-content: space-between;
+}
+/* ---------------------------------------- */
+.content-bottom-detail{
+   display: flex;
+   justify-content: space-between;
+}
+.content-bottom-detail .number{
+   width: 40%;
+   display: flex;
+   justify-content: space-around;
+   margin: 10px 15px 25px;
+}
+.content-bottom-detail .number p{
+   font-size: 14px;
+}
+.content-bottom-detail .number p:first-child, .number p:last-child{
+   position: relative;
+}
+.content-bottom-detail .number p:first-child::before{
+   position: absolute;
+   content: "Very dissatisfied";
+   top: 20px;
+   left: -35px;
+   font-size: 11px;
+   width: 100px;
+}
+.content-bottom-detail .number p:last-child::before{
+   position: absolute;
+   content: "Very satisfied";
+   top: 20px;
+   left: -28px;
+   font-size: 11px;
+   width: 100px;
+}
+.content-bottom-detail.background{
+   background-color: white;
+   border-radius: 3px;
+}
+.content-bottom-detail .detail{
+   margin: 10px;
+   width: 57%;
+}
+.content-bottom-detail .detail p{
+   margin: 0;
+   font-size: 13px;
+}
+.content-bottom-detail .wrapp-checkBox{
+   display: flex;
+   justify-content: space-around;
+   width: 40%;
+   margin: 10px 15px;
+}
+.content-bottom-detail .wrapp-checkBox input{
+   cursor: pointer;
+}
+/* -------------------------------------- */
+.content .content-bottom .following{
+   margin: 10px 0;
+   display: flex;
+   align-items: center;
+}
+.content .content-bottom .following label{
+   font-size: 13px;
+   margin: 0 5px;
+   cursor: pointer;
+}
+.content .content-bottom .following label.active,
+.content .content-bottom .following label:hover{
+   color: #FF6A00;
+}
+/* ------------------------------------- */
+.content .content-bottom .textarea{
+   width: 85%;
+   margin: 10px 0;
+}
+.content .content-bottom .textarea textarea{
+   outline: none;
+   padding: 7px;
+   resize: none;
+   font-size: 13px;
+   font-family: 'Roboto', sans-serif;
+   border: 1px solid #bbbbbb;
+   width: 100%;
+   border-radius: 3px;
+}
+.content .content-bottom .textarea{
+   position: relative;
+}
+.content .content-bottom .textarea .warnning{
+   position: absolute;
+   right: -8px;
+   bottom: 7px;
+   font-size: 13px;
+   background-color:white;
+}
+.content .content-bottom .submit button{
+   padding: 8px;
+   font-size: 14px;
+   border: 1px solid #bbbbbb;
+   border-radius: 3px;
+   font-family: 'Roboto', sans-serif;
+   cursor: pointer;
+   outline: none;
+   display: none;
+}
+.content .content-bottom .submit button:hover{
+   background-color: rgba(0,0,0,0.1);
+}
+@media screen and (max-width:1211px){
+   .wrapper-feedback{
+      margin: 20px;
+   }
+   .wrapper-feedback .link{
+      font-size: 18px;
+   }
+   .user-experience{
+      font-size: 16px;
+      margin: 25px 0;
+   }
+   .content-bottom-detail .number{
+      margin: 10px 0px 25px;
+   }
+   .content-bottom-detail .wrapp-checkBox{
+      margin: 5px 0;
+   }
+   .content-bottom-detail .detail {
+      margin: 5px;
+  }
+}
+@media screen and (max-width:885px){
+   .feedback-content {
+      padding: 25px;
+   }
+   .content .content-bottom .textarea{
+      width: 100%;
+   }
+}
+@media screen and (max-width:700px){
+   .feedback-content {
+      padding: 15px;
+   }
+   .content .content-top .number {
+      margin-right: 10px;
+   }
+   .content-top .number .p {
+      font-size: 13px;
+      height: 25px;
+      width: 25px;
+   }
+   .content-bottom {
+      margin: 0px 35px;
+   }
+   .content-bottom .feelings label img {
+      width: 25px;
+  }
+   .content-bottom .feelings {
+      width: 225px;
+   }
+}
+@media screen and (max-width:450px){
+   .wrapper-feedback {
+      margin: 10px;
+   }
+   .feedback-content {
+      padding: 10px;
+   }
+   .content-bottom .feelings {
+      width: 100%;
+   }
+   .content-bottom .meaning {
+      width: 100%;
+   }
+   .content-bottom-detail {
+      display: block;
+   }
+   .content-bottom-detail .number {
+      width: 100%;
+      margin: 10px 0 25px;
+   }
+   .content-bottom-detail .number p:first-child::before {
+      left: -36px;
+  }
+   .content-bottom-detail .number p:last-child::before {
+      left: -30px;
+   }
+   .content-bottom-detail .detail {
+      margin: 0;
+      padding: 5px;
+      width: 100%;
+   }
+   .content-bottom-detail .wrapp-checkBox {
+      width: 100%;
+   }
+   .content-bottom-detail .wrapp-checkBox input{
+      margin: 5px 0;
+  }
+}
+@media screen and (max-width:310px){
+   .content-bottom .feelings label img {
+      width: 20px;
+   }
+   .content-bottom .meaning p{
+      white-space: nowrap;
+      font-size: 11px;
+   }
+   .content-bottom .meaning p:first-child{
+      margin-right: 10px;
+   }
+}

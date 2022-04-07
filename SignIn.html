@@ -1,0 +1,236 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: 'Roboto', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+.signIn-box{
+  position: relative;
+  width: 370px;
+  top: 50px;
+  margin: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.3);
+}
+.signIn-box::before{
+  position: absolute;
+  content: '';
+  top: -37%;
+  left: 23%;
+  width: 50%;
+  height: 74%;
+  z-index: -1;
+  border-radius: 100%;
+  transform: rotateY(50deg);
+  border: 20px solid #FF6A00;
+  box-shadow:  0px 0px 5px 1px rgba(0, 0, 0, 0.3), 
+                inset 0px 0px 6px 2px rgba(0, 0, 0, 0.3);
+  background: transparent;
+}
+.signIn-box::after{
+  position: absolute;
+  content: '';
+  top: -40%;
+  left: 18%;
+  width: 50%;
+  height: 74%;
+  z-index: -2;
+  border-radius: 100%;
+  transform: rotateY(50deg);
+  border: 20px solid #FF6A00;
+  box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.3),
+              inset 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
+  background: transparent;
+}
+
+.signIn-box form > p{
+  color: #707070;
+  margin: 0;
+  font-size: 28px;
+  padding: 10px 20px 0;
+  font-weight: bold;
+  text-align: center;
+}
+.signIn-box form{
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.signIn-box form .email-box,.password-box,.submit-box{
+  padding: 8px 20px;
+  display: flex;
+  flex-direction: column;
+}
+.signIn-box form .email-box label,.password-box label{
+  font-size: 14px;
+  color: #434343;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.signIn-box form .email-box #email,.password-box #password {
+  outline: none;
+  padding: 5px 8px;
+  color: #333333;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #999999;
+  background-color: #fff;
+}
+.signIn-box form #email:focus,#password:focus{
+  background-color: #F0F0F0;
+}
+.signIn-box form .password-box a{
+  margin-top: 10px;
+  text-align: right;
+  color: #000aff;
+  font-size: 13px;
+  text-decoration: none;
+}
+.signIn-box form .password-box a:hover{
+  font-weight: bolder;
+  text-decoration: underline;
+}
+.signIn-box form .submit-box input{
+  width: 100%;
+  padding: 5px;
+  outline: none;
+  border: 1px solid gray;
+  border-radius: 4px;
+  background: #fb9254;
+  cursor: pointer;
+}
+.signIn-box form .submit-box input:hover{
+  background-color: #ff7f33;
+}
+.singIn-wdth-social p{
+  margin: 0;
+  color: #434343;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 20px;
+  font-weight: bold;
+}
+.singIn-wdth-social .signIn-social-media{
+  padding: 0 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.singIn-wdth-social .signIn-social-media a{
+  font-size: 30px;
+  margin: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.singIn-wdth-social .signIn-social-media a:nth-child(1){
+  color:#385898;
+}
+.singIn-wdth-social .signIn-social-media a:nth-child(2){
+  color:rgb(29 161 242);
+}
+.singIn-wdth-social .signIn-social-media a:nth-child(3){
+  color:#ff3300;
+}
+.singIn-wdth-social .signIn-social-media a:nth-child(4){
+  color: #f75361;
+}
+.singIn-wdth-social .signIn-social-media a:hover{
+  transform: scale(1.1);
+}
+.signIn-box form .password-box{
+  position: relative;
+}
+.signIn-box form .password-box #password{
+  padding-right: 70px;
+}
+.showpassword{
+  position: absolute;
+  right: 30px;
+  top: 36px;
+  user-select: none;
+  color: #333333;
+  font-size: 14px;
+  cursor: pointer;
+  display: none;
+}
+@media screen and (max-width:600px){
+  .signIn-box{
+    width: 100%;
+  }
+}
+</style>    
+<body>
+  
+        <div class="signIn-box">
+          <form action="#" method="POST">
+            <p>Sign In</p>
+            <div class="email-box">
+              <label for="email">Account:</label>
+              <input type="email" name="email" id="email" placeholder="Email address" required>
+            </div>
+            <div class="password-box">
+              <label for="password">Password:</label>
+              <input  type="password" name="password" id="password" placeholder="Password" required>
+              <a href="#">Forgot Password?</a>
+              <p class="showpassword">show</p>
+            </div>
+            <div class="submit-box">
+              <input type="submit" id="submit" value="Sign In">
+            </div>
+          </form>
+          <div class="singIn-wdth-social">
+            <p>Sing In with:</p>
+            <div class="signIn-social-media">
+              <a href="#"><i class="fab fa-facebook-square"></i></a>
+              <a href="#"><i class="fab fa-twitter-square"></i></a>
+              <a href="#"><i class="fab fa-google-plus-square"></i></a>
+              <a href="#"><i class="fab fa-instagram-square"></i></a>
+            </div>
+          </div>
+        </div>
+      
+  <script type="text/javascript">
+   var input = document.querySelector('#password')
+   var text = document.querySelector('.showpassword');
+  // to show the text 'show' when the lenght of input more than 1
+    input.addEventListener('keyup',function(){
+      if(input.value.length > 0){
+        text.style.display = 'block';
+      }else{
+        text.style.display = 'none';
+      }
+    });
+
+  //  to wheather or not show password
+    text.addEventListener('click',function(){
+      if(input.type === 'password'){
+        input.type = 'text';
+        text.textContent = "Hide";
+        text.style.color = 'red';
+      }else{
+        input.type = 'password';
+        text.textContent = 'Show';
+        text.style.color = '#333333';
+      }
+    });
+    
+</script>
+
+<!--font awesome-->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>  
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SingUp</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+  *{
+  margin: 0;
+  padding: 0;
+  }
+  body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #fff;
+  }
+  h2{
+    color: #FF6A00;
+    font-weight: bolder;
+    font-size: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .signUn-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .signUn-box form{
+    width: 370px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.3);
+  }
+  .signUn-box form > p{
+    font-size: 23px;
+    padding: 20px 0 9px 20px;
+    font-weight: bold;
+  }
+  .signUn-box form .inputBox{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 20px;
+  }
+  .signUn-box form .inputBox label{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 2px 0;
+    color: #434343;
+  }
+  .signUn-box form .inputBox input{
+    padding: 5px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 4px;
+  }
+  .signUn-box form .inputBox .wanning{
+    font-size: 12px;
+    padding: 4px 0 0 0;
+    visibility: hidden;
+  }
+  .signUn-box form .inputBox.success input{
+    border: 1px solid green;
+  }
+  .signUn-box form .inputBox.error input{
+    border: 1px solid red;
+  }
+  .signUn-box form .inputBox.error .wanning{
+    color: red;
+    visibility: visible;
+  }
+  i{
+    padding: 0 6px 0 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #2498ce;
+  }
+  .signUn-box form .button{
+    padding: 5px 20px;
+  }
+  .signUn-box form .button input{
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    border: 1px solid gray;
+    border-radius: 4px;
+    background: #fb9254;
+    cursor: pointer;
+  }
+  .signUn-box form .button input:hover{
+    background: #ff7f33;
+  }
+  .privacy p{
+    font-size: 13px;
+    padding: 13px 20px;;
+    font-size: 12px;
+    border-bottom: 1px solid #c3c3c3;
+  }
+  .already-have-acc p{
+    font-size: 14px;
+    padding: 13px 20px;
+  }
+  .already-have-acc p a{
+    font-size: 14px;
+    color: rgb(0, 81, 255);
+  }
+  @media screen and (max-width:450px){
+    .signUn-box form{
+      margin: 0 30px 30px 30px;
+    }    
+  }
+</style>
+</head>
+<body>
+  
+  
+  <h2>WorldShop</h2>
+  <div class="signUn-box">
+    <form action="#" id="form">
+      <p>Create Account</p>
+      <div class="inputBox">
+        <label for="name">Your name</label>
+        <input type="text" id="name" placeholder="Name" autofocus>
+        <p class="wanning">error</p>
+      </div>
+      <div class="inputBox">
+        <label for="email">Email</label>
+        <input type="text" id="email" placeholder="Email">
+        <p class="wanning">error</p>
+      </div>
+      <div class="inputBox">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="At least 6 charecters" autocomplete>
+        <p class="wanning" style="visibility: visible;"><i>i</i>Password must be at least 6 characters.</p>
+      </div>
+      <div class="inputBox">
+        <label for="re_password">Re-enter Password</label>
+        <input type="password" id="re_password" autocomplete>
+        <p class="wanning">error</p>
+      </div>
+      <div class="button">
+        <input type="submit" id="submit" value="Create Your WorldShop Accoutn">
+      </div>
+      <div class="privacy">
+      <p>Be creating an account, you agree to WorldShop's consition of use and privacy notice.</p>
+      </div>
+      <div class="already-have-acc">
+        <p>Already have an account? <a href="SignIn.html">Sing-In</a></p>
+      </div>
+    </form>
+  </div>
+  
+  
+  <script>
+
+      var form = document.getElementById("form");
+      var user = document.getElementById("name");
+      var email = document.getElementById("email")
+      var pass = document.getElementById("password");
+      var pass1 = document.getElementById("re_password");
+            form.addEventListener("submit",function(e) {
+               e.preventDefault();
+               inputCheck();
+            });
+            function inputCheck(){
+               // to get input value;
+               var userVal = user.value;
+               var emailVal = email.value;
+               var passVal = pass.value;
+               var pass1Val = pass1.value;
+               // check if user is empty
+               if(userVal === ""){
+                  setErrorFor(user,"Name can not be blank!")
+               }else{
+                  setSuccessFor(user);
+               }
+               // check if email is empty
+               if(emailVal === ""){
+                  setErrorFor(email,"Email can not be blank!")
+               }else{
+                  //check if email invalid
+                  email.addEventListener("keyup",()=>{
+                     var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                     if(email.value.match(pattern)){
+                        setSuccessFor(email);
+                     }else{
+                        setErrorFor(email,"Your email is invalid!");
+                     }
+                  });
+               }
+               // check if password is empty
+               if(passVal === ""){
+                  setErrorFor(pass,"Password can not be blank!")
+               }else{
+                  pass.addEventListener('keyup',function(){
+                    var wanning = pass.querySelector(".wanning");
+                    if(pass.value.length >= 6){
+                      setSuccessFor(pass);
+                    }else{
+                      setErrorFor(pass,"Password must be at least 6 characters.")
+                    }
+                  });
+               }
+               // check if re-password is empty
+               if(pass1Val === ""){
+                  setErrorFor(pass1,"Re-password can not be blank!")
+               }
+               //check if password and re-password dont match
+               else if(passVal !== pass1Val){
+                  setErrorFor(pass1,"Re-Password don't match!");
+               }
+               else{
+                  setSuccessFor(pass1);
+               }
+
+               
+               // function for check for error or success
+               function setErrorFor(input,Msg){
+                  var ParentEle = input.parentElement;
+                  var err = ParentEle.querySelector(".wanning");
+                  ParentEle.className = "inputBox error";
+                  err.innerText = Msg;
+               }
+               function setSuccessFor(input){
+                  var ParentEle = input.parentElement;
+                  ParentEle.className = "inputBox success";
+               }
+            }
+
+
+  </script>
+  
+  
+</body>
+</html>
